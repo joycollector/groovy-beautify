@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Keywords 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "start": "def",
+      "type": "keywords",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "start": "defaultVariable",
+      "type": "identifiers",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "start": "=",
+      "type": "operators",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "start": "true",
+      "type": "identifiers",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;

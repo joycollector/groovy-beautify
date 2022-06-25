@@ -1,0 +1,853 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parsing and formatting 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "start": "
+  ",
+      "type": "text",
+    },
+    Object {
+      "start": "def",
+      "type": "keywords",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "start": "bumpVersion",
+      "type": "identifiers",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": "String",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "target",
+          "type": "identifiers",
+        },
+        Object {
+          "start": ",",
+          "type": "delimiters",
+        },
+        Object {
+          "start": "    ",
+          "type": "text",
+        },
+        Object {
+          "start": "String",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "version_type",
+          "type": "identifiers",
+        },
+        Object {
+          "start": ",",
+          "type": "delimiters",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "Boolean",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "reset",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": "   ",
+          "type": "text",
+        },
+        Object {
+          "start": "false",
+          "type": "identifiers",
+        },
+      ],
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": "    ",
+          "type": "text",
+        },
+        Object {
+          "start": "def",
+          "type": "keywords",
+        },
+        Object {
+          "start": "
+	",
+          "type": "text",
+        },
+        Object {
+          "start": "versionMap",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "start": "major",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+            Object {
+              "start": ":",
+              "type": "delimiters",
+            },
+            Object {
+              "start": "0",
+              "type": "text",
+            },
+            Object {
+              "start": ",",
+              "type": "delimiters",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "minor",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": ":",
+              "type": "delimiters",
+            },
+            Object {
+              "start": " 1",
+              "type": "text",
+            },
+            Object {
+              "start": ",",
+              "type": "delimiters",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "patch",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+            Object {
+              "start": ":",
+              "type": "delimiters",
+            },
+            Object {
+              "start": "   2",
+              "type": "text",
+            },
+          ],
+          "end": "]",
+          "start": "[",
+          "type": "square",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "start": "def",
+          "type": "keywords",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "versionArray",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "target",
+          "type": "identifiers",
+        },
+        Object {
+          "start": ".",
+          "type": "dot",
+        },
+        Object {
+          "start": "findAll",
+          "type": "identifiers",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "start": "d+.d+.d+",
+                  "type": "text",
+                },
+              ],
+              "end": "/",
+              "start": "/",
+              "type": "regexp",
+            },
+          ],
+          "end": ")",
+          "start": "(",
+          "type": "round",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "0",
+              "type": "text",
+            },
+          ],
+          "end": "]",
+          "start": "[",
+          "type": "square",
+        },
+        Object {
+          "start": ".",
+          "type": "dot",
+        },
+        Object {
+          "start": "tokenize",
+          "type": "identifiers",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "start": ".",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+          ],
+          "end": ")",
+          "start": "(",
+          "type": "round",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "start": "try",
+          "type": "keywords",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "        ",
+              "type": "text",
+            },
+            Object {
+              "start": "def",
+              "type": "keywords",
+            },
+            Object {
+              "start": "   ",
+              "type": "text",
+            },
+            Object {
+              "start": "index",
+              "type": "identifiers",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": "=",
+              "type": "operators",
+            },
+            Object {
+              "start": "     ",
+              "type": "text",
+            },
+            Object {
+              "start": "versionMap",
+              "type": "identifiers",
+            },
+            Object {
+              "start": ".",
+              "type": "dot",
+            },
+            Object {
+              "start": "get",
+              "type": "identifiers",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "version_type",
+                  "type": "identifiers",
+                },
+              ],
+              "end": ")",
+              "start": "(",
+              "type": "round",
+            },
+            Object {
+              "start": ";",
+              "type": "delimiters",
+            },
+            Object {
+              "start": "
+	",
+              "type": "text",
+            },
+            Object {
+              "start": "versionArray",
+              "type": "identifiers",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "index",
+                  "type": "identifiers",
+                },
+              ],
+              "end": "]",
+              "start": "[",
+              "type": "square",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": "=",
+              "type": "operators",
+            },
+            Object {
+              "start": "versionArray",
+              "type": "identifiers",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "index",
+                  "type": "identifiers",
+                },
+              ],
+              "end": "]",
+              "start": "[",
+              "type": "square",
+            },
+            Object {
+              "start": ".",
+              "type": "dot",
+            },
+            Object {
+              "start": "toInteger",
+              "type": "identifiers",
+            },
+            Object {
+              "end": ")",
+              "start": "(",
+              "type": "round",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": "+",
+              "type": "operators",
+            },
+            Object {
+              "start": " 1
+	",
+              "type": "text",
+            },
+            Object {
+              "start": "if",
+              "type": "keywords",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "   ",
+                  "type": "text",
+                },
+                Object {
+                  "start": "reset",
+                  "type": "identifiers",
+                },
+                Object {
+                  "start": " ",
+                  "type": "text",
+                },
+              ],
+              "end": ")",
+              "start": "(",
+              "type": "round",
+            },
+            Object {
+              "start": "
+	",
+              "type": "text",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "
+		",
+                  "type": "text",
+                },
+                Object {
+                  "start": "for",
+                  "type": "keywords",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "start": "int",
+                      "type": "keywords",
+                    },
+                    Object {
+                      "start": " ",
+                      "type": "text",
+                    },
+                    Object {
+                      "start": "i",
+                      "type": "identifiers",
+                    },
+                    Object {
+                      "start": "=",
+                      "type": "operators",
+                    },
+                    Object {
+                      "start": "2",
+                      "type": "text",
+                    },
+                    Object {
+                      "start": ";",
+                      "type": "delimiters",
+                    },
+                    Object {
+                      "start": "i",
+                      "type": "identifiers",
+                    },
+                    Object {
+                      "start": ">",
+                      "type": "operators",
+                    },
+                    Object {
+                      "start": "index",
+                      "type": "identifiers",
+                    },
+                    Object {
+                      "start": ";",
+                      "type": "delimiters",
+                    },
+                    Object {
+                      "start": "     ",
+                      "type": "text",
+                    },
+                    Object {
+                      "start": "i",
+                      "type": "identifiers",
+                    },
+                    Object {
+                      "start": "--",
+                      "type": "incdec",
+                    },
+                  ],
+                  "end": ")",
+                  "start": "(",
+                  "type": "round",
+                },
+                Object {
+                  "start": " ",
+                  "type": "text",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "start": "
+			",
+                      "type": "text",
+                    },
+                    Object {
+                      "start": "versionArray",
+                      "type": "identifiers",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "start": "i",
+                          "type": "identifiers",
+                        },
+                      ],
+                      "end": "]",
+                      "start": "[",
+                      "type": "square",
+                    },
+                    Object {
+                      "start": "    ",
+                      "type": "text",
+                    },
+                    Object {
+                      "start": "=",
+                      "type": "operators",
+                    },
+                    Object {
+                      "start": "    0            ",
+                      "type": "text",
+                    },
+                  ],
+                  "end": "}",
+                  "start": "{",
+                  "type": "block",
+                },
+                Object {
+                  "start": "        ",
+                  "type": "text",
+                },
+              ],
+              "end": "}",
+              "start": "{",
+              "type": "block",
+            },
+            Object {
+              "start": "
+",
+              "type": "text",
+            },
+          ],
+          "end": "}",
+          "start": "{",
+          "type": "block",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "catch",
+          "type": "keywords",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "       ",
+              "type": "text",
+            },
+            Object {
+              "start": "Exception",
+              "type": "identifiers",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": "e",
+              "type": "identifiers",
+            },
+          ],
+          "end": ")",
+          "start": "(",
+          "type": "round",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "        ",
+              "type": "text",
+            },
+            Object {
+              "start": "println",
+              "type": "identifiers",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "start": "Unrecognized version type \\\\\\"version_type\\\\\\" (should be major, minor or patch)",
+                      "type": "text",
+                    },
+                  ],
+                  "end": "\\"",
+                  "start": "\\"",
+                  "type": "string",
+                },
+              ],
+              "end": ")",
+              "start": "(",
+              "type": "round",
+            },
+            Object {
+              "start": "    ",
+              "type": "text",
+            },
+          ],
+          "end": "}",
+          "start": "{",
+          "type": "block",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "start": "return",
+          "type": "keywords",
+        },
+        Object {
+          "start": "             ",
+          "type": "text",
+        },
+        Object {
+          "start": "versionArray",
+          "type": "identifiers",
+        },
+        Object {
+          "start": ".",
+          "type": "dot",
+        },
+        Object {
+          "start": "join",
+          "type": "identifiers",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "                   ",
+              "type": "text",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": ".",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+            Object {
+              "start": "                       ",
+              "type": "text",
+            },
+          ],
+          "end": ")",
+          "start": "(",
+          "type": "round",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+      ],
+      "end": "}",
+      "start": "{",
+      "type": "block",
+    },
+    Object {
+      "start": "
+
+",
+      "type": "text",
+    },
+    Object {
+      "start": "println",
+      "type": "identifiers",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": "bumpVersion",
+          "type": "identifiers",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "start": "1.2.3",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+            Object {
+              "start": ",",
+              "type": "delimiters",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "start": "minor",
+                  "type": "text",
+                },
+              ],
+              "end": "'",
+              "start": "'",
+              "type": "string",
+            },
+            Object {
+              "start": ",",
+              "type": "delimiters",
+            },
+            Object {
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": "true",
+              "type": "identifiers",
+            },
+          ],
+          "end": ")",
+          "start": "(",
+          "type": "round",
+        },
+      ],
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": "
+",
+      "type": "text",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;
+
+exports[`Parsing and formatting 2`] = `
+"
+def bumpVersion(String target, String version_type, Boolean reset = false) {
+    def 
+    versionMap = 
+    ['major': 0, 'minor': 1, 'patch': 2]
+    def versionArray = target.findAll(/d+.d+.d+/)[0].tokenize('.')
+    try 
+    {
+        def index = versionMap.get(version_type); 
+        versionArray[index] = versionArray[index].toInteger() + 1
+        if (reset)
+        {
+            for (int i = 2; i > index; i--) {
+                versionArray[i] = 0
+            }
+        }
+    }catch (Exception e) {
+        println(\\"Unrecognized version type \\\\\\"version_type\\\\\\" (should be major, minor or patch)\\")
+    }
+    return versionArray.join('.')
+}
+
+println(bumpVersion('1.2.3', 'minor', true))
+"
+`;

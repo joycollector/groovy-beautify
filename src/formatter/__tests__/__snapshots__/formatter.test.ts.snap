@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New line and tabs format 1`] = `
+"{
+    def 
+    variable = true
+}"
+`;
