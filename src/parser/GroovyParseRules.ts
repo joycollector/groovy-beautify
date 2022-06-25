@@ -8,24 +8,23 @@ export default [
   new ParseRule("string", { start: '"', end: '"', skip: '\\"', exclusive: true }),
   new ParseRule("string", { start: "'", end: "'", skip: "\\'", exclusive: true }),
   new ParseRule("regexp", { start: /\//g, end: /\//g, skip: /\'/g, exclusive: true }),
-  new ParseRule("block", { start: /\{/g, end: /\}/g }),
-  new ParseRule("square", { start: /\[/g, end: /\]/g }),
-  new ParseRule("round", { start: /\(/g, end: /\)/g }),
-  new ParseRule("dot", { start: /\.(?=[^\d])/ }),
-  new ParseRule("delimiters", { start: /(\;|\,|\:)/ }),
+  new ParseRule("block", { start: "{", end: "}" }),
+  new ParseRule("square", { start: ["?[", "["], end: "]" }),
+  new ParseRule("round", { start: "(", end: ")" }),
+  new ParseRule("dot", { start: /((\?|\*|\&)+)?\.(?=[^\d])/g }), // Includes dot, spread dot, method reference, safe dot and safe chain dot
+  new ParseRule("delimiters", { start: [",", ":", ";"] }),
   new ParseRule("incdec", { start: ["--", "++", "**"] }),
-  new ParseRule("operators", { start: /[!+*=-]?=/ }), // Equals operator
-  new ParseRule("operators", { start: /(\+|\-|\*|\/)/ }), // Arithmetic operator
-  new ParseRule("operators", { start: /((\<\<?)|(\>\>?))/ }), // Comparsion and bitwise operators
-  new ParseRule("operators", { start: /((\&\&?)|(\|\|?))/ }), // Logical operators
-  new ParseRule("operators", { start: /\-\>/ }), // Arrow function
+  // prettier-ignore
+  new ParseRule("operators", { start: [ '>>>=', '<..<', '>>=', '==~', '===', '<=>', '<<=', '<..', '**=', '..<', '!==', '||', 
+    '|=', '>=', '=~', '==', '<=', '+=', '++', '^=', '%=', '&=', '&&', '/=', '*=', '**', '..', '?=', '?:', '!=', '::', '->', 
+    '-=', '--', '~', '|', '>', '=', '<', '+', '^', '%', '&', '/', '*', '?', '!', '-' ] }),
+  // prettier-ignore
   new ParseRule("keywords", {
-    start: (
-      "assert|with|abstract|continue|for|new|switch|default|goto|package|synchronized|boolean|do|if|" +
-      "private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|" +
-      "enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|" +
-      "void|class|finally|long|strictfp|volatile|def|float|native|super|while"
-    ).split("|"),
+    start: ['assert', 'with', 'abstract', 'continue', 'for', 'new', 'switch', 'default', 'goto', 'package', 'synchronized', 
+      'boolean', 'do', 'if', 'private', 'this', 'break', 'double', 'implements', 'protected', 'throw', 'byte', 'else', 'import', 
+      'public', 'throws', 'case', 'enum', '!instanceof', 'instanceof', 'return', 'transient', 'catch', 'extends', 'int', 'short', 
+      'try', 'char', 'final', 'interface', 'static', 'void', 'class', 'finally', 'long', 'strictfp', 'volatile', 'def', 'float', 
+      'native', 'super', 'while'],
     wholeword: true,
   }),
   new ParseRule("identifiers", { start: /[a-zA-Z_$][a-zA-Z0-9_$]*\b/g, wholeword: true }),
