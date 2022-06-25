@@ -987,7 +987,7 @@ def bumpVersion(String target, String version_type, Boolean reset = false) {
                 versionArray[i] = 0
             }
         }
-    }catch (Exception e) {
+    } catch (Exception e) {
         println(\\"Unrecognized version type \\\\\\"version_type\\\\\\" (should be major, minor or patch)\\")
     }
     return versionArray.join('.')

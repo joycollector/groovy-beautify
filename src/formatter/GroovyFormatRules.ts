@@ -83,7 +83,7 @@ class SingleSpacesBeforeAndAfterFormatRule extends FormatRule {
 
 class SingleSpaceAfterFormatRule extends FormatRule {
   matches(obj: CodeBlock) {
-    return obj?.type === "keywords" || obj?.type === "delimiters";
+    return obj?.type === "delimiters";
   }
 
   beforeSelf(prevText: string): string {
@@ -96,6 +96,25 @@ class SingleSpaceAfterFormatRule extends FormatRule {
 
   formatStart(obj: CodeBlock) {
     return obj.start.trim() + " ";
+  }
+}
+
+class KeywordRule extends FormatRule {
+  matches(obj: CodeBlock) {
+    return obj?.type === "keywords";
+  }
+
+  beforeSelf(prevText: string): string {
+    const trimmedText = trimSpacesAndTabsRight(prevText);
+    if (trimmedText.endsWith("\n")) {
+      return trimmedText;
+    } else {
+      return trimmedText + " ";
+    }
+  }
+
+  afterSelf(nextText: string): string {
+    return " " + trimSpacesAndTabsLeft(nextText);
   }
 }
 
@@ -117,6 +136,7 @@ export default [
   new BlockFormatRule(),
   new RoundFormatRule(),
   new DotSyntaxFormatRule(),
+  new KeywordRule(),
   new SingleSpacesBeforeAndAfterFormatRule(),
   new SingleSpaceAfterFormatRule(),
   new FormatRule(),
