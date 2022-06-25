@@ -5,8 +5,9 @@ module.exports = defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "groovy-beautify",
-      fileName: (format) => `groovy-beautify.${format}.js`,
+      name: "index",
+      formats: ["es", "cjs"],
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
