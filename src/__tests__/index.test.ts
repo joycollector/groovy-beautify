@@ -32,4 +32,23 @@ test("Parsing and formatting", () => {
   expect(formattingResult).toMatchSnapshot();
 });
 
+test("Multiline Strings", () => {
+  const code = `
+if (true) {
+def string1 = '''Some
+multiline
+String'''
+def string2 = """Some
+multiline
+String"""
+}`;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  expect(parsingResult).toMatchSnapshot();
+
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
 export {};

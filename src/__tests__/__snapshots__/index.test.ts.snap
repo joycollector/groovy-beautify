@@ -1,5 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Multiline Strings 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "start": "
+",
+      "type": "text",
+    },
+    Object {
+      "start": "if",
+      "type": "keywords",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": "true",
+          "type": "identifiers",
+        },
+      ],
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "start": "def",
+          "type": "keywords",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "string1",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "Some
+multiline
+String",
+              "type": "text",
+            },
+          ],
+          "end": "'''",
+          "start": "'''",
+          "type": "multilinestring",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+        Object {
+          "start": "def",
+          "type": "keywords",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "string2",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": " ",
+          "type": "text",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "Some
+multiline
+String",
+              "type": "text",
+            },
+          ],
+          "end": "\\"\\"\\"",
+          "start": "\\"\\"\\"",
+          "type": "multilinestring",
+        },
+        Object {
+          "start": "
+",
+          "type": "text",
+        },
+      ],
+      "end": "}",
+      "start": "{",
+      "type": "block",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;
+
+exports[`Multiline Strings 2`] = `
+"
+if (true) {
+    def string1 = '''Some
+multiline
+String'''
+    def string2 = \\"\\"\\"Some
+multiline
+String\\"\\"\\"
+}"
+`;
+
 exports[`Parsing and formatting 1`] = `
 Object {
   "children": Array [
