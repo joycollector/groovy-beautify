@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Long string with operators 1`] = `
+"if (true) {
+    def a = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
++ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1;
+}"
+`;
+
 exports[`Multiline Strings 1`] = `
 Object {
   "children": Array [
@@ -973,12 +986,9 @@ Object {
 exports[`Parsing and formatting 2`] = `
 "
 def bumpVersion(String target, String version_type, Boolean reset = false) {
-    def 
-    versionMap = 
-    ['major': 0, 'minor': 1, 'patch': 2]
+    def versionMap = ['major': 0, 'minor': 1, 'patch': 2]
     def versionArray = target.findAll(/d+.d+.d+/)[0].tokenize('.')
-    try 
-    {
+    try {
         def index = versionMap.get(version_type); 
         versionArray[index] = versionArray[index].toInteger() + 1
         if (reset)

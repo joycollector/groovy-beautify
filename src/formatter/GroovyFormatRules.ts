@@ -1,10 +1,9 @@
 import { CodeBlock } from "../parser/Parser";
 import FormatRule from "./FormatRule";
-import { Formatter } from "./Formatter";
 
 class BlockFormatRule extends FormatRule {
-  matches(obj: CodeBlock) {
-    return obj?.type === "block";
+  matches(cb: CodeBlock) {
+    return cb?.type === "block";
   }
 
   beforeChild(childText: string, indent: number): string {
@@ -25,33 +24,33 @@ class BlockFormatRule extends FormatRule {
     }
   }
 
-  formatStart(obj: CodeBlock) {
-    return obj.start + "\n";
+  formatStart(cb: CodeBlock) {
+    return cb.start + "\n";
   }
 
-  formatEnd(obj: CodeBlock, indent: number) {
-    return "\n" + (obj.end ? padLeft(obj.end, indent) : "");
+  formatEnd(cb: CodeBlock, indent: number) {
+    return "\n" + (cb.end ? padLeft(cb.end, indent) : "");
   }
 
-  formatChildren(obj: CodeBlock, indent: number, formatter: Formatter) {
-    const blockText = super.formatChildren(obj, indent + 1, formatter);
+  formatChildren(cb: CodeBlock, indent: number) {
+    const blockText = super.formatChildren(cb, indent + 1);
     return padLeft(blockText.trim(), indent + 1);
   }
 }
 
 class RoundFormatRule extends FormatRule {
-  matches(obj: CodeBlock) {
-    return obj?.type === "round";
+  matches(cb: CodeBlock) {
+    return cb?.type === "round";
   }
 
-  formatChildren(obj: CodeBlock, indent: number, formatter: Formatter) {
-    return super.formatChildren(obj, indent, formatter).trim();
+  formatChildren(obj: CodeBlock, indent: number) {
+    return super.formatChildren(obj, indent).trim();
   }
 }
 
 class DotSyntaxFormatRule extends FormatRule {
-  matches(obj: CodeBlock) {
-    return obj?.type === "dot";
+  matches(cb: CodeBlock) {
+    return cb?.type === "dot";
   }
   beforeSelf(prevText: string, indent: number): string {
     const trimmedText = trimSpacesAndTabsRight(prevText);
@@ -63,27 +62,27 @@ class DotSyntaxFormatRule extends FormatRule {
   }
 }
 
-class SingleSpacesBeforeAndAfterFormatRule extends FormatRule {
-  matches(obj: CodeBlock) {
-    return obj?.type === "operators";
+class OperatorsRule extends FormatRule {
+  matches(cb: CodeBlock) {
+    return cb?.type === "operators";
   }
 
   beforeSelf(prevText: string): string {
-    return trimSpacesAndTabsRight(prevText);
+    return trimSpacesAndTabsRight(prevText) + " ";
   }
 
   afterSelf(nextText: string): string {
-    return trimSpacesAndTabsLeft(nextText);
+    return " " + nextText.trimStart();
   }
 
-  formatStart(obj: CodeBlock) {
-    return " " + obj.start.trim() + " ";
+  allowBreak(): boolean {
+    return true;
   }
 }
 
-class SingleSpaceAfterFormatRule extends FormatRule {
-  matches(obj: CodeBlock) {
-    return obj?.type === "delimiters";
+class DelimitersRule extends FormatRule {
+  matches(cb: CodeBlock) {
+    return cb?.type === "delimiters";
   }
 
   beforeSelf(prevText: string): string {
@@ -91,17 +90,13 @@ class SingleSpaceAfterFormatRule extends FormatRule {
   }
 
   afterSelf(nextText: string): string {
-    return trimSpacesAndTabsLeft(nextText);
-  }
-
-  formatStart(obj: CodeBlock) {
-    return obj.start.trim() + " ";
+    return " " + trimSpacesAndTabsLeft(nextText);
   }
 }
 
 class KeywordRule extends FormatRule {
-  matches(obj: CodeBlock) {
-    return obj?.type === "keywords";
+  matches(cb: CodeBlock) {
+    return cb?.type === "keywords";
   }
 
   beforeSelf(prevText: string): string {
@@ -114,7 +109,11 @@ class KeywordRule extends FormatRule {
   }
 
   afterSelf(nextText: string): string {
-    return " " + trimSpacesAndTabsLeft(nextText);
+    return " " + nextText.trimStart();
+  }
+
+  allowBreak(): boolean {
+    return true;
   }
 }
 
@@ -132,12 +131,4 @@ function trimSpacesAndTabsRight(text: string) {
   return text.replace(/( |\t)+$/, "");
 }
 
-export default [
-  new BlockFormatRule(),
-  new RoundFormatRule(),
-  new DotSyntaxFormatRule(),
-  new KeywordRule(),
-  new SingleSpacesBeforeAndAfterFormatRule(),
-  new SingleSpaceAfterFormatRule(),
-  new FormatRule(),
-];
+export default [BlockFormatRule, RoundFormatRule, DotSyntaxFormatRule, KeywordRule, OperatorsRule, DelimitersRule, FormatRule];

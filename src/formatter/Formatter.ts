@@ -1,11 +1,17 @@
 import { CodeBlock } from "../parser/Parser";
 import FormatRule from "./FormatRule";
 
+export type FormatterOptions = {
+  width: number;
+};
+
 export class Formatter {
   rules: FormatRule[];
+  options: FormatterOptions;
 
-  constructor(rules?: FormatRule[]) {
-    this.rules = rules || [];
+  constructor(rules?: Array<typeof FormatRule>, options?: FormatterOptions) {
+    this.rules = rules?.map((r) => new r(this)) || [];
+    this.options = options || { width: 80 };
   }
 
   format(obj: CodeBlock, indent = 0): string {
@@ -20,7 +26,7 @@ export class Formatter {
       }
 
       if (formatRule) {
-        text += formatRule.formatChildren(obj, indent, this);
+        text += formatRule.formatChildren(obj, indent);
       }
 
       if (obj.end) {

@@ -2,7 +2,6 @@
 
 exports[`New line and tabs format 1`] = `
 "{
-    def 
-    variable = true
+    def variable = true
 }"
 `;
