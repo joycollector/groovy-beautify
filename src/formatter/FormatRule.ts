@@ -59,10 +59,10 @@ export default class FormatRule {
         const lastLineLength = res.split("\n").at(-1)?.length ?? 0;
         const childFisrtLineLength = childString.split("\n").at(0)?.length ?? 0;
         if (lastLineLength + childFisrtLineLength > this.formatter.options.width && childFormatRule?.allowBreak(child)) {
-          if (parentFormatRule) {          
-            childString = parentFormatRule.beforeChild(childString.trimStart(), indent);
+          childString = "\n" + childString.trimStart();
+          if (parentFormatRule) {
+            childString = parentFormatRule.beforeChild(childString, indent + 1);
           }
-          childString = "\n" + childString;
         }
         res += childString;
 

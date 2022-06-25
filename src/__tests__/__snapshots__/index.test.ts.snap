@@ -3,13 +3,14 @@
 exports[`Long string with operators 1`] = `
 "if (true) {
     def a = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1;
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+        + 1 + 1 + 1 + 1 + 1 + 1 + 1;
 }"
 `;
 
@@ -162,11 +163,6 @@ exports[`Parsing and formatting 1`] = `
 Object {
   "children": Array [
     Object {
-      "start": "
-  ",
-      "type": "text",
-    },
-    Object {
       "start": "def",
       "type": "keywords",
     },
@@ -269,7 +265,7 @@ Object {
         },
         Object {
           "start": "
-	",
+",
           "type": "text",
         },
         Object {
@@ -375,7 +371,7 @@ Object {
         },
         Object {
           "start": "
-",
+            ",
           "type": "text",
         },
         Object {
@@ -471,7 +467,7 @@ Object {
         },
         Object {
           "start": "
-",
+        ",
           "type": "text",
         },
         Object {
@@ -542,7 +538,7 @@ Object {
             },
             Object {
               "start": "
-	",
+",
               "type": "text",
             },
             Object {
@@ -606,7 +602,7 @@ Object {
             },
             Object {
               "start": " 1
-	",
+",
               "type": "text",
             },
             Object {
@@ -634,14 +630,14 @@ Object {
             },
             Object {
               "start": "
-	",
+",
               "type": "text",
             },
             Object {
               "children": Array [
                 Object {
                   "start": "
-		",
+    ",
                   "type": "text",
                 },
                 Object {
@@ -715,7 +711,7 @@ Object {
                   "children": Array [
                     Object {
                       "start": "
-			",
+        ",
                       "type": "text",
                     },
                     Object {
@@ -904,7 +900,6 @@ Object {
     },
     Object {
       "start": "
-
 ",
       "type": "text",
     },
@@ -972,11 +967,6 @@ Object {
       "start": "(",
       "type": "round",
     },
-    Object {
-      "start": "
-",
-      "type": "text",
-    },
   ],
   "start": "",
   "type": "root",
@@ -984,12 +974,11 @@ Object {
 `;
 
 exports[`Parsing and formatting 2`] = `
-"
-def bumpVersion(String target, String version_type, Boolean reset = false) {
+"def bumpVersion(String target, String version_type, Boolean reset = false) {
     def versionMap = ['major': 0, 'minor': 1, 'patch': 2]
     def versionArray = target.findAll(/d+.d+.d+/)[0].tokenize('.')
     try {
-        def index = versionMap.get(version_type); 
+        def index = versionMap.get(version_type);
         versionArray[index] = versionArray[index].toInteger() + 1
         if (reset)
         {
@@ -1002,7 +991,5 @@ def bumpVersion(String target, String version_type, Boolean reset = false) {
     }
     return versionArray.join('.')
 }
-
-println(bumpVersion('1.2.3', 'minor', true))
-"
+println(bumpVersion('1.2.3', 'minor', true))"
 `;

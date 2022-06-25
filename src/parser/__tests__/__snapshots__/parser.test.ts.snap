@@ -36,3 +36,23 @@ Object {
   "type": "root",
 }
 `;
+
+exports[`String escaping 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "start": "Hello \\\\\\"World\\\\\\"!",
+          "type": "text",
+        },
+      ],
+      "end": "\\"",
+      "start": "\\"",
+      "type": "string",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;

@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Basic formatting 1`] = `
+"{
+    if (text) {
+        test
+    }
+}"
+`;
+
 exports[`New line and tabs format 1`] = `
 "{
     def variable = true

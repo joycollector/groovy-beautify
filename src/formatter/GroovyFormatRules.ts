@@ -7,12 +7,16 @@ class BlockFormatRule extends FormatRule {
   }
 
   beforeChild(childText: string, indent: number): string {
-    const trimmedText = trimSpacesAndTabsRight(childText);
-    if (trimmedText.endsWith("\n")) {
-      return padRight(trimmedText, indent);
-    } else {
-      return childText;
+    let text = childText;
+    const trimmedLeft = trimSpacesAndTabsLeft(text);
+    if (trimmedLeft.startsWith("\n")) {
+      text = "\n" + padLeft(trimmedLeft.trimStart(), indent);
     }
+    const trimmedRight = trimSpacesAndTabsRight(text);
+    if (trimmedRight.endsWith("\n")) {
+      text = padRight(trimmedRight, indent);
+    }
+    return text;
   }
 
   beforeSelf(prevText: string) {
