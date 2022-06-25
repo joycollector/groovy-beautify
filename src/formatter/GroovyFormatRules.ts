@@ -29,16 +29,17 @@ class BlockFormatRule extends FormatRule {
   }
 
   formatStart(cb: CodeBlock) {
-    return cb.start + "\n";
+    return cb.start;
   }
 
   formatEnd(cb: CodeBlock, indent: number) {
-    return "\n" + (cb.end ? padLeft(cb.end, indent) : "");
+    return cb.end ? padLeft(cb.end, indent) : "";
   }
 
   formatChildren(cb: CodeBlock, indent: number) {
-    const blockText = super.formatChildren(cb, indent + 1);
-    return padLeft(blockText.trim(), indent + 1);
+    let blockText = super.formatChildren(cb, indent + 1);
+    blockText = blockText.trim();
+    return "\n" + padLeft(blockText, indent + 1) + "\n";
   }
 }
 
