@@ -14,12 +14,6 @@ class BaseBlockRule extends FormatRule {
     }
     return text;
   }
-
-  formatChildren(cb: CodeBlock, indent: number) {
-    let blockText = super.formatChildren(cb, indent + 1);
-    blockText = blockText.trim();
-    return "\n" + padLeft(blockText, indent + 1) + "\n";
-  }
 }
 
 class BlockFormatRule extends BaseBlockRule {
@@ -39,6 +33,12 @@ class BlockFormatRule extends BaseBlockRule {
   formatEnd(cb: CodeBlock, indent: number) {
     return cb.end ? padLeft(cb.end, indent) : "";
   }
+
+  formatChildren(cb: CodeBlock, indent: number) {
+    let blockText = super.formatChildren(cb, indent + 1);
+    blockText = blockText.trim();
+    return "\n" + padLeft(blockText, indent + 1) + "\n";
+  }
 }
 
 class InlineBlockFormatRule extends BaseBlockRule {
@@ -55,11 +55,13 @@ class InlineBlockFormatRule extends BaseBlockRule {
     }
   }
 
-  formatChildren(obj: CodeBlock, indent: number) {
-    let blockText = super.formatChildren(obj, indent);
-    if (blockText.trim().includes("\n")) {
-      return blockText;
+  formatChildren(cb: CodeBlock, indent: number) {
+    if (cb.children?.some(child => child.start?.includes("\n"))) {
+        let blockText = super.formatChildren(cb, indent + 1);
+        blockText = blockText.trim();
+        return "\n" + padLeft(blockText, indent + 1) + "\n";
     } else {
+      let blockText = super.formatChildren(cb, indent);
       return blockText.trim();
     }
   }

@@ -168,6 +168,16 @@ def matrix = [
    "
 `;
 
+exports[`Nested round 1`] = `
+"
+if (pathObject.hasChildren()) {
+    newObject.addPathObjects(pathObject.getChildObjects().collect({
+        transformObject(it, transform)
+    }))
+}
+   "
+`;
+
 exports[`Parsing and formatting 1`] = `
 Object {
   "children": Array [

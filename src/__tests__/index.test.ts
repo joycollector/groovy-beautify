@@ -79,4 +79,17 @@ test("Multiline in square", () => {
   expect(formattingResult).toMatchSnapshot();
 });
 
+test("Nested round", () => {
+  const code = `
+    if (pathObject.hasChildren()) {
+      newObject.addPathObjects(pathObject.getChildObjects().collect({transformObject(it, transform)}))
+    }
+   `;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
 export {};
