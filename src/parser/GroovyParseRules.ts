@@ -24,7 +24,7 @@ export default [
       '===', '==~', '==', '=~', '=', '>=', '>>=', '>>>=', '>>', '>', '|=', '||', '|', '~'] }),
   // prettier-ignore
   new ParseRule("keywords", {
-    start: ['!instanceof', 'abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'continue', 
+    start: ['abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'continue', 
         'default', 'def', 'double', 'do', 'else', 'enum', 'extends', 'finally', 'final', 'float', 'for', 'goto', 'if', 
         'implements', 'import', 'instanceof', 'interface', 'int', 'long', 'native', 'new', 'package', 'private', 'protected', 
         'public', 'return', 'short', 'static', 'strictfp', 'super', 'switch', 'synchronized', 'this', 'throws', 'throw', 
