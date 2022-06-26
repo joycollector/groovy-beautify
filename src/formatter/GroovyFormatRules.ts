@@ -46,6 +46,10 @@ class InlineBlockFormatRule extends BaseBlockRule {
     return cb?.type === "round" || cb?.type === "square";
   }
 
+  isMultiline(cb: CodeBlock) {
+    return cb.children?.some((child) => child.start?.includes("\n"));
+  }
+
   beforeSelf(prevText: string) {
     const trimmedText = trimSpacesAndTabsRight(prevText);
     if (trimmedText.endsWith("\n")) {
@@ -55,11 +59,19 @@ class InlineBlockFormatRule extends BaseBlockRule {
     }
   }
 
+  formatEnd(cb: CodeBlock, indent: number) {
+    if (this.isMultiline(cb)) {
+      return cb.end ? padLeft(cb.end, indent) : "";
+    } else {
+      return cb.end ?? "";
+    }
+  }
+
   formatChildren(cb: CodeBlock, indent: number) {
-    if (cb.children?.some(child => child.start?.includes("\n"))) {
-        let blockText = super.formatChildren(cb, indent + 1);
-        blockText = blockText.trim();
-        return "\n" + padLeft(blockText, indent + 1) + "\n";
+    if (this.isMultiline(cb)) {
+      let blockText = super.formatChildren(cb, indent + 1);
+      blockText = blockText.trim();
+      return "\n" + padLeft(blockText, indent + 1) + "\n";
     } else {
       let blockText = super.formatChildren(cb, indent);
       return blockText.trim();
@@ -150,4 +162,12 @@ function trimSpacesAndTabsRight(text: string) {
   return text.replace(/( |\t)+$/, "");
 }
 
-export default [BlockFormatRule, InlineBlockFormatRule, DotSyntaxFormatRule, KeywordRule, OperatorsRule, DelimitersRule, FormatRule];
+export default [
+  BlockFormatRule,
+  InlineBlockFormatRule,
+  DotSyntaxFormatRule,
+  KeywordRule,
+  OperatorsRule,
+  DelimitersRule,
+  FormatRule,
+];
