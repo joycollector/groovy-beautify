@@ -2,7 +2,7 @@ import ParseRule from "./ParseRule";
 
 export default [
   new ParseRule("blockcomment", { start: "/*", end: "*/", exclusive: true }),
-  new ParseRule("linecomment", { start: "//", end: /.(?=\n)/g, exclusive: true }),
+  new ParseRule("linecomment", { start: "//", end: "\n", exclusive: true }),
   new ParseRule("multilinestring", { start: "'''", end: "'''", exclusive: true }),
   new ParseRule("multilinestring", { start: '"""', end: '"""', exclusive: true }),
   new ParseRule("string", { start: '"', end: '"', skip: '\\"', exclusive: true }),
@@ -11,20 +11,20 @@ export default [
   new ParseRule("block", { start: "{", end: "}" }),
   new ParseRule("square", { start: ["?[", "["], end: "]" }),
   new ParseRule("round", { start: "(", end: ")" }),
-  new ParseRule("dot", { start: /((\?|\*|\&)+)?\.(?=[^\d])/g }), // Includes dot, spread dot, method reference, safe dot and safe chain dot
+  new ParseRule("dot", { start: /((\?|\*|\&)+)?\.(?=[^\d])(\*)?/g }), // Includes dot, spread dot, method reference, safe dot, safe chain dot and import all
   new ParseRule("delimiters", { start: [",", ":", ";"] }),
   new ParseRule("incdec", { start: ["--", "++", "**"] }),
   // prettier-ignore
-  new ParseRule("operators", { start: [ '>>>=', '<..<', '>>=', '==~', '===', '<=>', '<<=', '<..', '**=', '..<', '!==', '||', 
-    '|=', '>>', '>=', '=~', '==', '<<', '<=', '+=', '++', '^=', '%=', '&=', '&&', '/=', '*=', '**', '..', '?=', '?:', '!=', '::', '->', 
-    '-=', '--', '~', '|', '>', '=', '<', '+', '^', '%', '&', '/', '*', '?', '!', '-' ] }),
+  new ParseRule("operators", { start: ['--', '-=', '->', '-', '::', '!==', '!=', '!', '?:', '?=', '?', '..<', '..', '**=', '**', 
+      '*=', '*', '/=', '/', '&&', '&=', '&', '%=', '%', '^=', '^', '++', '+=', '+', '<..<', '<..', '<<=', '<<', '<=>', '<=', '<', 
+      '===', '==~', '==', '=~', '=', '>=', '>>=', '>>>=', '>>', '>', '|=', '||', '|', '~'] }),
   // prettier-ignore
   new ParseRule("keywords", {
-    start: ['assert', 'with', 'abstract', 'continue', 'for', 'new', 'switch', 'default', 'goto', 'package', 'synchronized', 
-      'boolean', 'do', 'if', 'private', 'this', 'break', 'double', 'implements', 'protected', 'throw', 'byte', 'else', 'import', 
-      'public', 'throws', 'case', 'enum', '!instanceof', 'instanceof', 'return', 'transient', 'catch', 'extends', 'int', 'short', 
-      'try', 'char', 'final', 'interface', 'static', 'void', 'class', 'finally', 'long', 'strictfp', 'volatile', 'def', 'float', 
-      'native', 'super', 'while'],
+    start: ['!instanceof', 'abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'continue', 
+        'default', 'def', 'double', 'do', 'else', 'enum', 'extends', 'finally', 'final', 'float', 'for', 'goto', 'if', 
+        'implements', 'import', 'instanceof', 'interface', 'int', 'long', 'native', 'new', 'package', 'private', 'protected', 
+        'public', 'return', 'short', 'static', 'strictfp', 'super', 'switch', 'synchronized', 'this', 'throws', 'throw', 
+        'transient', 'try', 'void', 'volatile', 'while', 'with'],
     wholeword: true,
   }),
   new ParseRule("identifiers", { start: /[a-zA-Z_$][a-zA-Z0-9_$]*\b/g, wholeword: true }),

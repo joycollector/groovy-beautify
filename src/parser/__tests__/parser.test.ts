@@ -14,4 +14,18 @@ test("String escaping", () => {
   expect(parsingResult).toMatchSnapshot();
 });
 
+test("Dots", () => {
+  const code = `
+  test.test() // dot
+  test?.test() // safe dot
+  test??.test() // safe chain dot
+  test*.test() // spread dot
+  test&.test() // method reference
+  test.* // import all
+  `;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  expect(parsingResult).toMatchSnapshot();
+});
+
 export {};

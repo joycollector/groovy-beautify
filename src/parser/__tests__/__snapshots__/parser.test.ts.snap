@@ -1,5 +1,232 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dots 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "start": "
+  ",
+      "type": "text",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "start": ".",
+      "type": "dot",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " dot",
+          "type": "text",
+        },
+      ],
+      "end": "
+",
+      "start": "//",
+      "type": "linecomment",
+    },
+    Object {
+      "start": "  ",
+      "type": "text",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "start": "?.",
+      "type": "dot",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " safe dot",
+          "type": "text",
+        },
+      ],
+      "end": "
+",
+      "start": "//",
+      "type": "linecomment",
+    },
+    Object {
+      "start": "  ",
+      "type": "text",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "start": "??.",
+      "type": "dot",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " safe chain dot",
+          "type": "text",
+        },
+      ],
+      "end": "
+",
+      "start": "//",
+      "type": "linecomment",
+    },
+    Object {
+      "start": "  ",
+      "type": "text",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "start": "*.",
+      "type": "dot",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " spread dot",
+          "type": "text",
+        },
+      ],
+      "end": "
+",
+      "start": "//",
+      "type": "linecomment",
+    },
+    Object {
+      "start": "  ",
+      "type": "text",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "start": "&.",
+      "type": "dot",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " method reference",
+          "type": "text",
+        },
+      ],
+      "end": "
+",
+      "start": "//",
+      "type": "linecomment",
+    },
+    Object {
+      "start": "  ",
+      "type": "text",
+    },
+    Object {
+      "start": "test",
+      "type": "identifiers",
+    },
+    Object {
+      "start": ".*",
+      "type": "dot",
+    },
+    Object {
+      "start": " ",
+      "type": "text",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " import all",
+          "type": "text",
+        },
+      ],
+      "end": "
+",
+      "start": "//",
+      "type": "linecomment",
+    },
+    Object {
+      "start": "  ",
+      "type": "text",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;
+
 exports[`Keywords 1`] = `
 Object {
   "children": Array [
