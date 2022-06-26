@@ -1,5 +1,10 @@
 # groovy-beautify
+
 A simple zero-dependency beautifier which allows formatting and indenting Groovy scripts
+
+# Demo
+
+You can test how it works on the [Demo Website](https://groovy-beautify-web.vercel.app/)
 
 # Installation
 
