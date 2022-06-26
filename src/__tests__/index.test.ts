@@ -65,4 +65,18 @@ test("Long string with operators", () => {
   expect(formattingResult).toMatchSnapshot();
 });
 
+test("Multiline in square", () => {
+  const code = `
+  def matrix = [
+    -0.998, -0.070, 127256.994, 
+                    0.070, -0.998, 72627.371
+   ]
+   `;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
 export {};

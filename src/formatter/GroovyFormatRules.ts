@@ -1,11 +1,7 @@
 import { CodeBlock } from "../parser/Parser";
 import FormatRule from "./FormatRule";
 
-class BlockFormatRule extends FormatRule {
-  matches(cb: CodeBlock) {
-    return cb?.type === "block";
-  }
-
+class BaseBlockRule extends FormatRule {
   beforeChild(childText: string, indent: number): string {
     let text = childText;
     const trimmedLeft = trimSpacesAndTabsLeft(text);
@@ -19,6 +15,18 @@ class BlockFormatRule extends FormatRule {
     return text;
   }
 
+  formatChildren(cb: CodeBlock, indent: number) {
+    let blockText = super.formatChildren(cb, indent + 1);
+    blockText = blockText.trim();
+    return "\n" + padLeft(blockText, indent + 1) + "\n";
+  }
+}
+
+class BlockFormatRule extends BaseBlockRule {
+  matches(cb: CodeBlock) {
+    return cb?.type === "block";
+  }
+
   beforeSelf(prevText: string) {
     const trimmedText = trimSpacesAndTabsRight(prevText);
     if (trimmedText.endsWith("\n")) {
@@ -28,28 +36,32 @@ class BlockFormatRule extends FormatRule {
     }
   }
 
-  formatStart(cb: CodeBlock) {
-    return cb.start;
-  }
-
   formatEnd(cb: CodeBlock, indent: number) {
     return cb.end ? padLeft(cb.end, indent) : "";
   }
-
-  formatChildren(cb: CodeBlock, indent: number) {
-    let blockText = super.formatChildren(cb, indent + 1);
-    blockText = blockText.trim();
-    return "\n" + padLeft(blockText, indent + 1) + "\n";
-  }
 }
 
-class RoundFormatRule extends FormatRule {
+class InlineBlockFormatRule extends BaseBlockRule {
   matches(cb: CodeBlock) {
-    return cb?.type === "round";
+    return cb?.type === "round" || cb?.type === "square";
+  }
+
+  beforeSelf(prevText: string) {
+    const trimmedText = trimSpacesAndTabsRight(prevText);
+    if (trimmedText.endsWith("\n")) {
+      return trimmedText;
+    } else {
+      return prevText;
+    }
   }
 
   formatChildren(obj: CodeBlock, indent: number) {
-    return super.formatChildren(obj, indent).trim();
+    let blockText = super.formatChildren(obj, indent);
+    if (blockText.trim().includes("\n")) {
+      return blockText;
+    } else {
+      return blockText.trim();
+    }
   }
 }
 
@@ -136,4 +148,4 @@ function trimSpacesAndTabsRight(text: string) {
   return text.replace(/( |\t)+$/, "");
 }
 
-export default [BlockFormatRule, RoundFormatRule, DotSyntaxFormatRule, KeywordRule, OperatorsRule, DelimitersRule, FormatRule];
+export default [BlockFormatRule, InlineBlockFormatRule, DotSyntaxFormatRule, KeywordRule, OperatorsRule, DelimitersRule, FormatRule];

@@ -159,6 +159,15 @@ String\\"\\"\\"
 }"
 `;
 
+exports[`Multiline in square 1`] = `
+"
+def matrix = [
+    - 0.998, - 0.070, 127256.994,
+    0.070, - 0.998, 72627.371
+]
+   "
+`;
+
 exports[`Parsing and formatting 1`] = `
 Object {
   "children": Array [
