@@ -1,6 +1,21 @@
 import { CodeBlock } from "../parser/Parser";
 import FormatRule from "./FormatRule";
 
+class RootFormatRule extends FormatRule {
+  matches(cb: CodeBlock) {
+    return cb?.type === "root";
+  }
+
+  beforeChild(childText: string, indent: number): string {
+    let text = childText;
+    const trimmedRight = trimSpacesAndTabsRight(text);
+    if (trimmedRight.endsWith("\n")) {
+      text = trimmedRight;
+    }
+    return text;
+  }
+}
+
 class BaseBlockRule extends FormatRule {
   beforeChild(childText: string, indent: number): string {
     let text = childText;
@@ -163,6 +178,7 @@ function trimSpacesAndTabsRight(text: string) {
 }
 
 export default [
+  RootFormatRule,
   BlockFormatRule,
   InlineBlockFormatRule,
   DotSyntaxFormatRule,

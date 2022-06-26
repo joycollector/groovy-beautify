@@ -17,7 +17,7 @@ if(   !reset )
 } catch(       Exception e) {        println("Unrecognized version type \\"version_type\\" (should be major, minor or patch)")    }
 return             versionArray.join(                   '.'                       )
 }
-println(bumpVersion('1.2.3', 'minor', true))`;
+    println(bumpVersion('1.2.3', 'minor', true))`;
 
 test("Parsing and formatting", () => {
   const parser = new Parser(TEST_SCRIPT, GroovyParseRules);

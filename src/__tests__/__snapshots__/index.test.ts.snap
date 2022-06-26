@@ -182,7 +182,7 @@ if (pathObject.hasChildren()) {
         transformObject(it, transform)
     }))
 }
-   "
+"
 `;
 
 exports[`Parsing and formatting 1`] = `
@@ -954,7 +954,7 @@ Object {
     },
     Object {
       "start": "
-",
+    ",
       "type": "text",
     },
     Object {
