@@ -36,13 +36,13 @@ Object {
           "type": "text",
         },
       ],
-      "end": "
-",
+      "end": "",
       "start": "//",
       "type": "linecomment",
     },
     Object {
-      "start": "  ",
+      "start": "
+  ",
       "type": "text",
     },
     Object {
@@ -73,13 +73,13 @@ Object {
           "type": "text",
         },
       ],
-      "end": "
-",
+      "end": "",
       "start": "//",
       "type": "linecomment",
     },
     Object {
-      "start": "  ",
+      "start": "
+  ",
       "type": "text",
     },
     Object {
@@ -110,13 +110,13 @@ Object {
           "type": "text",
         },
       ],
-      "end": "
-",
+      "end": "",
       "start": "//",
       "type": "linecomment",
     },
     Object {
-      "start": "  ",
+      "start": "
+  ",
       "type": "text",
     },
     Object {
@@ -147,13 +147,13 @@ Object {
           "type": "text",
         },
       ],
-      "end": "
-",
+      "end": "",
       "start": "//",
       "type": "linecomment",
     },
     Object {
-      "start": "  ",
+      "start": "
+  ",
       "type": "text",
     },
     Object {
@@ -184,13 +184,13 @@ Object {
           "type": "text",
         },
       ],
-      "end": "
-",
+      "end": "",
       "start": "//",
       "type": "linecomment",
     },
     Object {
-      "start": "  ",
+      "start": "
+  ",
       "type": "text",
     },
     Object {
@@ -212,13 +212,13 @@ Object {
           "type": "text",
         },
       ],
-      "end": "
-",
+      "end": "",
       "start": "//",
       "type": "linecomment",
     },
     Object {
-      "start": "  ",
+      "start": "
+  ",
       "type": "text",
     },
   ],

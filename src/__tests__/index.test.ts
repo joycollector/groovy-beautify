@@ -92,4 +92,16 @@ test("Nested round", () => {
   expect(formattingResult).toMatchSnapshot();
 });
 
+test("Line comment", () => {
+  const code = `{
+    def shape = PathROIToolsAwt.getShape(roi) // Comment
+    shape2 = transform.createTransformedShape(shape)
+}`;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
 export {};

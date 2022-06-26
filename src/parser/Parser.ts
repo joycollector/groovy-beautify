@@ -43,7 +43,7 @@ export class Parser {
     if (expression instanceof RegExp) {
       const modifiedExpression = new RegExp("^(" + expression.source + ")", expression.flags);
       const text = this.text.substring(this.textPosition).match(modifiedExpression)?.[0];
-      if (text?.length) {
+      if (typeof text === "string") {
         result = text;
       }
     } else if (expression instanceof Array) {
@@ -117,7 +117,7 @@ export class Parser {
         if (activeRule.end) {
           // Check rule end
           const activeRuleText = this.matchEnd(activeRule);
-          if (activeRuleText) {
+          if (typeof activeRuleText === 'string') {
             activeObj.end = activeRuleText;
             ruleStack.pop();
             objStack.pop();

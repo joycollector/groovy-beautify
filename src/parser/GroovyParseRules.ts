@@ -2,7 +2,7 @@ import ParseRule from "./ParseRule";
 
 export default [
   new ParseRule("blockcomment", { start: "/*", end: "*/", exclusive: true }),
-  new ParseRule("linecomment", { start: "//", end: "\n", exclusive: true }),
+  new ParseRule("linecomment", { start: "//", end: /(?=\n)/, exclusive: true }),
   new ParseRule("multilinestring", { start: "'''", end: "'''", exclusive: true }),
   new ParseRule("multilinestring", { start: '"""', end: '"""', exclusive: true }),
   new ParseRule("string", { start: '"', end: '"', skip: '\\"', exclusive: true }),

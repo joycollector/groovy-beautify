@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Line comment 1`] = `
+"{
+    def shape = PathROIToolsAwt.getShape(roi) // Comment
+    shape2 = transform.createTransformedShape(shape)
+}"
+`;
+
 exports[`Long string with operators 1`] = `
 "if (true) {
     def a = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
