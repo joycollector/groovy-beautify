@@ -1,6 +1,6 @@
 {
   "name": "groovy-beautify",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A simple beautifier which allows formatting and indenting Groovy scripts",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
