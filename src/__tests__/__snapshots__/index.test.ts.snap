@@ -658,6 +658,10 @@ Object {
                   "type": "text",
                 },
                 Object {
+                  "start": "!",
+                  "type": "negation",
+                },
+                Object {
                   "start": "reset",
                   "type": "identifiers",
                 },
@@ -1030,7 +1034,7 @@ exports[`Parsing and formatting 2`] = `
     try {
         def index = versionMap.get(version_type);
         versionArray[index] = versionArray[index].toInteger() + 1
-        if (reset)
+        if (!reset)
         {
             for (int i = 2; i > index; i--) {
                 versionArray[i] = 0

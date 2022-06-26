@@ -17,8 +17,9 @@ export default [
   new ParseRule("dot", { start: /((\?|\*|\&)+)?\.(?=[^\d])(\*)?/g }), // Includes dot, spread dot, method reference, safe dot, safe chain dot and import all
   new ParseRule("delimiters", { start: [",", ":", ";"] }),
   new ParseRule("incdec", { start: ["--", "++", "**"] }),
+  new ParseRule("negation", { start: "!" }),
   // prettier-ignore
-  new ParseRule("operators", { start: ['--', '-=', '->', '-', '::', '!==', '!=', '!', '?:', '?=', '?', '..<', '..', '**=', '**', 
+  new ParseRule("operators", { start: ['--', '-=', '->', '-', '::', '!==', '!=', '?:', '?=', '?', '..<', '..', '**=', '**', 
       '*=', '*', '/=', '/', '&&', '&=', '&', '%=', '%', '^=', '^', '++', '+=', '+', '<..<', '<..', '<<=', '<<', '<=>', '<=', '<', 
       '===', '==~', '==', '=~', '=', '>=', '>>=', '>>>=', '>>', '>', '|=', '||', '|', '~'] }),
   // prettier-ignore

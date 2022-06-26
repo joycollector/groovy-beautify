@@ -10,7 +10,7 @@ versionMap =
         try
 {        def   index =     versionMap.get(version_type);
 versionArray[index] =versionArray[index].toInteger() + 1
-if(   reset )
+if(   !reset )
 {
     for(int i=2;i>index;     i--) {
         versionArray[i]    =    0            }        }
