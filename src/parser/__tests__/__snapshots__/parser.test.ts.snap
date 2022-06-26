@@ -256,7 +256,7 @@ Object {
     },
     Object {
       "start": "true",
-      "type": "identifiers",
+      "type": "boolean",
     },
   ],
   "start": "",

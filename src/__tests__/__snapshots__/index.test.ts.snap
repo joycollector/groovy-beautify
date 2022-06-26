@@ -41,7 +41,7 @@ Object {
       "children": Array [
         Object {
           "start": "true",
-          "type": "identifiers",
+          "type": "boolean",
         },
       ],
       "end": ")",
@@ -169,8 +169,8 @@ String\\"\\"\\"
 exports[`Multiline in square 1`] = `
 "
 def matrix = [
-    - 0.998, - 0.070, 127256.994,
-    0.070, - 0.998, 72627.371
+    -0.998, -0.070, 127256.994,
+    0.070, -0.998, 72627.371
 ]
    "
 `;
@@ -268,7 +268,7 @@ Object {
         },
         Object {
           "start": "false",
-          "type": "identifiers",
+          "type": "boolean",
         },
       ],
       "end": ")",
@@ -330,7 +330,7 @@ Object {
             },
             Object {
               "start": "0",
-              "type": "text",
+              "type": "numeric",
             },
             Object {
               "start": ",",
@@ -360,8 +360,12 @@ Object {
               "type": "delimiters",
             },
             Object {
-              "start": " 1",
+              "start": " ",
               "type": "text",
+            },
+            Object {
+              "start": "1",
+              "type": "numeric",
             },
             Object {
               "start": ",",
@@ -387,8 +391,12 @@ Object {
               "type": "delimiters",
             },
             Object {
-              "start": "   2",
+              "start": "   ",
               "type": "text",
+            },
+            Object {
+              "start": "2",
+              "type": "numeric",
             },
           ],
           "end": "]",
@@ -458,7 +466,7 @@ Object {
           "children": Array [
             Object {
               "start": "0",
-              "type": "text",
+              "type": "numeric",
             },
           ],
           "end": "]",
@@ -627,7 +635,15 @@ Object {
               "type": "operators",
             },
             Object {
-              "start": " 1
+              "start": " ",
+              "type": "text",
+            },
+            Object {
+              "start": "1",
+              "type": "numeric",
+            },
+            Object {
+              "start": "
 ",
               "type": "text",
             },
@@ -690,7 +706,7 @@ Object {
                     },
                     Object {
                       "start": "2",
-                      "type": "text",
+                      "type": "numeric",
                     },
                     Object {
                       "start": ";",
@@ -764,7 +780,15 @@ Object {
                       "type": "operators",
                     },
                     Object {
-                      "start": "    0            ",
+                      "start": "    ",
+                      "type": "text",
+                    },
+                    Object {
+                      "start": "0",
+                      "type": "numeric",
+                    },
+                    Object {
+                      "start": "            ",
                       "type": "text",
                     },
                   ],
@@ -981,7 +1005,7 @@ Object {
             },
             Object {
               "start": "true",
-              "type": "identifiers",
+              "type": "boolean",
             },
           ],
           "end": ")",
