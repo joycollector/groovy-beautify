@@ -38,10 +38,10 @@ class BlockFormatRule extends BaseBlockRule {
 
   beforeSelf(prevText: string) {
     const trimmedText = trimSpacesAndTabsRight(prevText);
-    if (trimmedText.endsWith("\n")) {
-      return trimmedText;
-    } else {
+    if (!trimmedText.endsWith("\n")) {
       return prevText.trimEnd() + " ";
+    } else {
+      return prevText;
     }
   }
 
@@ -147,10 +147,10 @@ class KeywordRule extends FormatRule {
 
   beforeSelf(prevText: string): string {
     const trimmedText = trimSpacesAndTabsRight(prevText);
-    if (trimmedText.endsWith("\n")) {
-      return trimmedText;
-    } else {
+    if (!trimmedText.endsWith("\n")) {
       return trimmedText + " ";
+    } else {
+      return prevText;
     }
   }
 

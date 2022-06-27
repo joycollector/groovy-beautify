@@ -49,11 +49,11 @@ export default class FormatRule {
         if (prevFormatRule) {
           childString = prevFormatRule.afterSelf(childString, indent);
         }
-        if (nextFormatRule) {
-          childString = nextFormatRule.beforeSelf(childString, indent);
-        }
         if (parentFormatRule) {
           childString = parentFormatRule.beforeChild(childString, indent);
+        }
+        if (nextFormatRule) {
+          childString = nextFormatRule.beforeSelf(childString, indent);
         }
 
         const lastLineLength = res.split("\n").at(-1)?.length ?? 0;

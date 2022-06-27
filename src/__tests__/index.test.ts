@@ -6,10 +6,11 @@ import GroovyFormatRules from "../formatter/GroovyFormatRules";
 const TEST_SCRIPT = `def bumpVersion(String target,    String version_type, Boolean reset =   false) {    def
 versionMap =
 ['major':0, 'minor' : 1, 'patch':   2]
-            def versionArray = target.findAll(/\d+\.\d+\.\d+/)[0].tokenize('.')
+            def versionArray = target.findAll(/\\d+\\.\\d+\\.\\d+/)[0].tokenize('.')
         try
 {        def   index =     versionMap.get(version_type);
-versionArray[index] =versionArray[index].toInteger() + 1
+versionArray[index] =versionArray[index]
+.toInteger() + 1
 if(   !reset )
 {
     for(int i=2;i>index;     i--) {
@@ -96,6 +97,20 @@ test("Line comment", () => {
     def shape = PathROIToolsAwt.getShape(roi) // Comment
     shape2 = transform.createTransformedShape(shape)
 }`;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
+test("Chained invocation", () => {
+  const code = `{if (!reset) 
+  {
+    def variable = test
+    .test
+     .test
+  }}`;
   const parser = new Parser(code, GroovyParseRules);
   const parsingResult = parser.parse();
   const formatter = new Formatter(GroovyFormatRules);

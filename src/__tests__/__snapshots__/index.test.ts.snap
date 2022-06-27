@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Chained invocation 1`] = `
+"{
+    if (!reset)
+    {
+        def variable = test
+            .test
+            .test
+    }
+}"
+`;
+
 exports[`Line comment 1`] = `
 "{
     def shape = PathROIToolsAwt.getShape(roi) // Comment
@@ -449,7 +460,7 @@ Object {
             Object {
               "children": Array [
                 Object {
-                  "start": "d+.d+.d+",
+                  "start": "\\\\d+\\\\.\\\\d+\\\\.\\\\d+",
                   "type": "text",
                 },
               ],
@@ -612,6 +623,11 @@ Object {
               "end": "]",
               "start": "[",
               "type": "square",
+            },
+            Object {
+              "start": "
+",
+              "type": "text",
             },
             Object {
               "start": ".",
@@ -1030,10 +1046,11 @@ Object {
 exports[`Parsing and formatting 2`] = `
 "def bumpVersion(String target, String version_type, Boolean reset = false) {
     def versionMap = ['major': 0, 'minor': 1, 'patch': 2]
-    def versionArray = target.findAll(/d+.d+.d+/)[0].tokenize('.')
+    def versionArray = target.findAll(/\\\\d+\\\\.\\\\d+\\\\.\\\\d+/)[0].tokenize('.')
     try {
         def index = versionMap.get(version_type);
-        versionArray[index] = versionArray[index].toInteger() + 1
+        versionArray[index] = versionArray[index]
+            .toInteger() + 1
         if (!reset)
         {
             for (int i = 2; i > index; i--) {
