@@ -1,11 +1,5 @@
 import ParseRule, { MatchExpression } from "./ParseRule";
-
-export type CodeBlock = {
-  type: string;
-  start: string;
-  end?: string;
-  children?: Array<CodeBlock>;
-};
+import { CodeBlock } from "./types";
 
 export class Parser {
   text: string;
@@ -38,7 +32,7 @@ export class Parser {
     this.textPosition += length;
   }
 
-  match(expression?: MatchExpression | MatchExpression[], wholeword?: boolean): string | undefined {
+  match(cb: CodeBlock, expression?: MatchExpression | MatchExpression[], wholeword?: boolean): string | undefined {
     let result;
     if (expression instanceof RegExp) {
       const modifiedExpression = new RegExp("^(" + expression.source + ")", expression.flags);
@@ -48,12 +42,14 @@ export class Parser {
       }
     } else if (expression instanceof Array) {
       for (const exp of expression) {
-        let match = this.match(exp);
+        let match = this.match(cb, exp);
         if (match) {
           result = match;
           break;
         }
       }
+    } else if (typeof expression === "function") {
+      result = expression(cb, this.text.substring(this.textPosition));
     } else if (typeof expression === "string") {
       if (this.text.substring(this.textPosition).startsWith(expression)) {
         result = expression;
@@ -63,20 +59,20 @@ export class Parser {
       const prevSymbol = this.text.charAt(this.textPosition - 1);
       const nextSymbol = this.text.charAt(this.textPosition + result.length);
       if (prevSymbol.match(/[A-Za-z0-9_]/) || nextSymbol.match(/[A-Za-z0-9_]/)) {
-        return undefined;
+        result = undefined;
       }
     }
     return result;
   }
 
-  matchStart(rule: ParseRule) {
-    return this.match(rule.start, rule.wholeword);
+  matchStart(cb: CodeBlock, rule: ParseRule) {
+    return this.match(cb, rule.start, rule.wholeword);
   }
-  matchEnd(rule: ParseRule) {
-    return this.match(rule.end, rule.wholeword);
+  matchEnd(cb: CodeBlock, rule: ParseRule) {
+    return this.match(cb, rule.end, rule.wholeword);
   }
-  matchSkip(rule: ParseRule) {
-    return this.match(rule.skip, rule.wholeword);
+  matchSkip(cb: CodeBlock, rule: ParseRule) {
+    return this.match(cb, rule.skip, rule.wholeword);
   }
 
   createDefaultTextObject(text: string) {
@@ -99,8 +95,8 @@ export class Parser {
       if (activeRule) {
         // Check skip first
         if (activeRule.skip) {
-          const activeRuleSkipText = this.matchSkip(activeRule);
-          if (activeRuleSkipText) {
+          const activeRuleSkipText = this.matchSkip(activeObj, activeRule);
+          if (typeof activeRuleSkipText === "string") {
             // Append to existing text block or create a new one
             if (activeObjLastChild && activeObjLastChild.type === "text") {
               activeObjLastChild.start += activeRuleSkipText;
@@ -116,8 +112,8 @@ export class Parser {
         }
         if (activeRule.end) {
           // Check rule end
-          const activeRuleText = this.matchEnd(activeRule);
-          if (typeof activeRuleText === 'string') {
+          const activeRuleText = this.matchEnd(activeObj, activeRule);
+          if (typeof activeRuleText === "string") {
             activeObj.end = activeRuleText;
             ruleStack.pop();
             objStack.pop();
@@ -128,10 +124,10 @@ export class Parser {
       }
       // Check rule start
       if (!activeRule?.exclusive) {
-        const matchedRule = this.rules.find((r) => this.matchStart(r));
+        const matchedRule = this.rules.find((r) => this.matchStart(activeObj, r));
         if (matchedRule) {
-          const matchedRuleText = this.matchStart(matchedRule);
-          if (matchedRuleText) {
+          const matchedRuleText = this.matchStart(activeObj, matchedRule);
+          if (typeof matchedRuleText === "string") {
             const newObj = {
               type: matchedRule.name,
               start: matchedRuleText,

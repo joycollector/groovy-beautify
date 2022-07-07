@@ -1,4 +1,5 @@
-import { CodeBlock } from "../parser/Parser";
+import { CodeBlock } from "../parser/types";
+import { trimSpacesAndTabsRight } from "../utils/text";
 import { Formatter } from "./Formatter";
 
 export default class FormatRule {
@@ -8,7 +9,7 @@ export default class FormatRule {
     this.formatter = formatter;
   }
 
-  matches(cb: CodeBlock): boolean {
+  matches(cb: CodeBlock, siblings?: CodeBlock[]): boolean {
     return true;
   }
   /* Modifies next sibling text before adding it */
@@ -16,7 +17,7 @@ export default class FormatRule {
     return nextText;
   }
   /* Modifies previous sibling text before adding it */
-  beforeSelf(prevText: string, indent: number): string {
+  beforeSelf(prevText: string, indent: number, newLine: boolean): string {
     return prevText;
   }
   /* Modifies child text before adding it */
@@ -53,7 +54,9 @@ export default class FormatRule {
           childString = parentFormatRule.beforeChild(childString, indent);
         }
         if (nextFormatRule) {
-          childString = nextFormatRule.beforeSelf(childString, indent);
+          const trimmed = trimSpacesAndTabsRight(res + childString);
+          const newLine = !trimmed.length || trimSpacesAndTabsRight(res + childString).endsWith("\n");
+          childString = nextFormatRule.beforeSelf(childString, indent, newLine);
         }
 
         const lastLineLength = res.split("\n").at(-1)?.length ?? 0;

@@ -1,4 +1,5 @@
-import { CodeBlock } from "../parser/Parser";
+import { CodeBlock } from "../parser/types";
+import { padLeft, padRight, trimSpacesAndTabsLeft, trimSpacesAndTabsRight } from "../utils/text";
 import FormatRule from "./FormatRule";
 
 class RootFormatRule extends FormatRule {
@@ -36,9 +37,8 @@ class BlockFormatRule extends BaseBlockRule {
     return cb?.type === "block";
   }
 
-  beforeSelf(prevText: string) {
-    const trimmedText = trimSpacesAndTabsRight(prevText);
-    if (!trimmedText.endsWith("\n")) {
+  beforeSelf(prevText: string, indent: number, newLine: boolean) {
+    if (!newLine) {
       return prevText.trimEnd() + " ";
     } else {
       return prevText;
@@ -56,6 +56,20 @@ class BlockFormatRule extends BaseBlockRule {
   }
 }
 
+class KeywordBlockFormatRule extends BlockFormatRule {
+  matches(cb: CodeBlock) {
+    return cb?.type === "keywordblock";
+  }
+
+  formatStart(cb: CodeBlock, indent: number) {
+    return "{";
+  }
+
+  formatEnd(cb: CodeBlock, indent: number) {
+    return padLeft("}\n", indent);
+  }
+}
+
 class InlineBlockFormatRule extends BaseBlockRule {
   matches(cb: CodeBlock) {
     return cb?.type === "round" || cb?.type === "square";
@@ -65,10 +79,9 @@ class InlineBlockFormatRule extends BaseBlockRule {
     return cb.children?.some((child) => child.start?.includes("\n"));
   }
 
-  beforeSelf(prevText: string) {
-    const trimmedText = trimSpacesAndTabsRight(prevText);
-    if (trimmedText.endsWith("\n")) {
-      return trimmedText;
+  beforeSelf(prevText: string, indent: number, newLine: boolean) {
+    if (newLine) {
+      return trimSpacesAndTabsRight(prevText);
     } else {
       return prevText;
     }
@@ -98,10 +111,9 @@ class DotSyntaxFormatRule extends FormatRule {
   matches(cb: CodeBlock) {
     return cb?.type === "dot";
   }
-  beforeSelf(prevText: string, indent: number): string {
-    const trimmedText = trimSpacesAndTabsRight(prevText);
-    if (trimmedText.endsWith("\n")) {
-      return padRight(trimmedText, indent + 1);
+  beforeSelf(prevText: string, indent: number, newLine: boolean): string {
+    if (newLine) {
+      return padRight(trimSpacesAndTabsRight(prevText), indent + 1);
     } else {
       return prevText;
     }
@@ -145,10 +157,9 @@ class KeywordRule extends FormatRule {
     return cb?.type === "keywords";
   }
 
-  beforeSelf(prevText: string): string {
-    const trimmedText = trimSpacesAndTabsRight(prevText);
-    if (!trimmedText.endsWith("\n")) {
-      return trimmedText + " ";
+  beforeSelf(prevText: string, indent: number, newLine: boolean): string {
+    if (!newLine) {
+      return prevText.trimEnd() + " ";
     } else {
       return prevText;
     }
@@ -163,23 +174,10 @@ class KeywordRule extends FormatRule {
   }
 }
 
-function padLeft(text: string, indent: number) {
-  return "".padStart(indent * 4) + text;
-}
-function padRight(text: string, indent: number) {
-  return text + "".padStart(indent * 4);
-}
-
-function trimSpacesAndTabsLeft(text: string) {
-  return text.replace(/^( |\t)+/, "");
-}
-function trimSpacesAndTabsRight(text: string) {
-  return text.replace(/( |\t)+$/, "");
-}
-
 export default [
   RootFormatRule,
   BlockFormatRule,
+  KeywordBlockFormatRule,
   InlineBlockFormatRule,
   DotSyntaxFormatRule,
   KeywordRule,

@@ -24,7 +24,6 @@ test("Parsing and formatting", () => {
   const parser = new Parser(TEST_SCRIPT, GroovyParseRules);
   const parsingResult = parser.parse();
   expect(parsingResult).toMatchSnapshot();
-
   const formatter = new Formatter(GroovyFormatRules);
   const formattingResult = formatter.format(parsingResult);
   expect(formattingResult).toMatchSnapshot();
@@ -42,8 +41,6 @@ String"""
 }`;
   const parser = new Parser(code, GroovyParseRules);
   const parsingResult = parser.parse();
-  expect(parsingResult).toMatchSnapshot();
-
   const formatter = new Formatter(GroovyFormatRules);
   const formattingResult = formatter.format(parsingResult);
   expect(formattingResult).toMatchSnapshot();
@@ -113,6 +110,27 @@ test("Chained invocation", () => {
   }}`;
   const parser = new Parser(code, GroovyParseRules);
   const parsingResult = parser.parse();
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
+test("If without brackets", () => {
+  const code = `{if (true) a = 1
+    def b = 1}`;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  expect(parsingResult).toMatchSnapshot();
+  const formatter = new Formatter(GroovyFormatRules);
+  const formattingResult = formatter.format(parsingResult);
+  expect(formattingResult).toMatchSnapshot();
+});
+
+test("Try/Catch", () => {
+  const code = `try { a = 1; } catch (Exception e) { a = 2; }`;
+  const parser = new Parser(code, GroovyParseRules);
+  const parsingResult = parser.parse();
+  expect(parsingResult).toMatchSnapshot();
   const formatter = new Formatter(GroovyFormatRules);
   const formattingResult = formatter.format(parsingResult);
   expect(formattingResult).toMatchSnapshot();

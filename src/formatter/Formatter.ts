@@ -1,4 +1,4 @@
-import { CodeBlock } from "../parser/Parser";
+import { CodeBlock } from "../parser/types";
 import FormatRule from "./FormatRule";
 
 export type FormatterOptions = {
@@ -19,7 +19,7 @@ export class Formatter {
 
     if (obj) {
       const formatRule = this.rules.find((r) => r.matches(obj));
-      if (obj.start) {
+      if (obj.start !== undefined) {
         if (formatRule) {
           text += formatRule.formatStart(obj, indent);
         }
@@ -29,7 +29,7 @@ export class Formatter {
         text += formatRule.formatChildren(obj, indent);
       }
 
-      if (obj.end) {
+      if (obj.end !== undefined) {
         if (formatRule) {
           text += formatRule.formatEnd(obj, indent);
         }

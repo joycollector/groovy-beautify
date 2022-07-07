@@ -1,4 +1,6 @@
-export type MatchExpression = RegExp | string;
+import { CodeBlock } from "./types";
+
+export type MatchExpression = RegExp | string | ((currentBlock: CodeBlock, currentText: string) => string | undefined);
 
 export default class ParseRule {
   name: string;

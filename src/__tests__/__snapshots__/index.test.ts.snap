@@ -11,6 +11,110 @@ exports[`Chained invocation 1`] = `
 }"
 `;
 
+exports[`If without brackets 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "start": "if",
+          "type": "keywords",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "true",
+              "type": "boolean",
+            },
+          ],
+          "end": ")",
+          "start": "(",
+          "type": "round",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "start": "a",
+              "type": "identifiers",
+            },
+            Object {
+              "start": " ",
+              "type": "whitespace",
+            },
+            Object {
+              "start": "=",
+              "type": "operators",
+            },
+            Object {
+              "start": " ",
+              "type": "whitespace",
+            },
+            Object {
+              "start": "1",
+              "type": "numeric",
+            },
+          ],
+          "end": "
+",
+          "start": " ",
+          "type": "keywordblock",
+        },
+        Object {
+          "start": "    ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "def",
+          "type": "keywords",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "b",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "1",
+          "type": "numeric",
+        },
+      ],
+      "end": "}",
+      "start": "{",
+      "type": "block",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;
+
+exports[`If without brackets 2`] = `
+"{
+    if (true) {
+        a = 1
+    }
+        def b = 1
+}"
+`;
+
 exports[`Line comment 1`] = `
 "{
     def shape = PathROIToolsAwt.getShape(roi) // Comment
@@ -33,139 +137,6 @@ exports[`Long string with operators 1`] = `
 `;
 
 exports[`Multiline Strings 1`] = `
-Object {
-  "children": Array [
-    Object {
-      "start": "
-",
-      "type": "text",
-    },
-    Object {
-      "start": "if",
-      "type": "keywords",
-    },
-    Object {
-      "start": " ",
-      "type": "text",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "start": "true",
-          "type": "boolean",
-        },
-      ],
-      "end": ")",
-      "start": "(",
-      "type": "round",
-    },
-    Object {
-      "start": " ",
-      "type": "text",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "start": "
-",
-          "type": "text",
-        },
-        Object {
-          "start": "def",
-          "type": "keywords",
-        },
-        Object {
-          "start": " ",
-          "type": "text",
-        },
-        Object {
-          "start": "string1",
-          "type": "identifiers",
-        },
-        Object {
-          "start": " ",
-          "type": "text",
-        },
-        Object {
-          "start": "=",
-          "type": "operators",
-        },
-        Object {
-          "start": " ",
-          "type": "text",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "start": "Some
-multiline
-String",
-              "type": "text",
-            },
-          ],
-          "end": "'''",
-          "start": "'''",
-          "type": "multilinestring",
-        },
-        Object {
-          "start": "
-",
-          "type": "text",
-        },
-        Object {
-          "start": "def",
-          "type": "keywords",
-        },
-        Object {
-          "start": " ",
-          "type": "text",
-        },
-        Object {
-          "start": "string2",
-          "type": "identifiers",
-        },
-        Object {
-          "start": " ",
-          "type": "text",
-        },
-        Object {
-          "start": "=",
-          "type": "operators",
-        },
-        Object {
-          "start": " ",
-          "type": "text",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "start": "Some
-multiline
-String",
-              "type": "text",
-            },
-          ],
-          "end": "\\"\\"\\"",
-          "start": "\\"\\"\\"",
-          "type": "multilinestring",
-        },
-        Object {
-          "start": "
-",
-          "type": "text",
-        },
-      ],
-      "end": "}",
-      "start": "{",
-      "type": "block",
-    },
-  ],
-  "start": "",
-  "type": "root",
-}
-`;
-
-exports[`Multiline Strings 2`] = `
 "
 if (true) {
     def string1 = '''Some
@@ -205,7 +176,7 @@ Object {
     },
     Object {
       "start": " ",
-      "type": "text",
+      "type": "whitespace",
     },
     Object {
       "start": "bumpVersion",
@@ -219,7 +190,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "target",
@@ -231,7 +202,7 @@ Object {
         },
         Object {
           "start": "    ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "String",
@@ -239,7 +210,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "version_type",
@@ -251,7 +222,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "Boolean",
@@ -259,7 +230,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "reset",
@@ -267,7 +238,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "=",
@@ -275,7 +246,7 @@ Object {
         },
         Object {
           "start": "   ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "false",
@@ -288,13 +259,13 @@ Object {
     },
     Object {
       "start": " ",
-      "type": "text",
+      "type": "whitespace",
     },
     Object {
       "children": Array [
         Object {
           "start": "    ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "def",
@@ -303,7 +274,7 @@ Object {
         Object {
           "start": "
 ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "versionMap",
@@ -311,7 +282,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "=",
@@ -320,7 +291,7 @@ Object {
         Object {
           "start": "
 ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "children": Array [
@@ -349,7 +320,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "children": Array [
@@ -364,7 +335,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": ":",
@@ -372,7 +343,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "1",
@@ -384,7 +355,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "children": Array [
@@ -403,7 +374,7 @@ Object {
             },
             Object {
               "start": "   ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "2",
@@ -417,7 +388,7 @@ Object {
         Object {
           "start": "
             ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "def",
@@ -425,7 +396,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "versionArray",
@@ -433,7 +404,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "=",
@@ -441,7 +412,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "target",
@@ -513,7 +484,7 @@ Object {
         Object {
           "start": "
         ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "try",
@@ -522,13 +493,13 @@ Object {
         Object {
           "start": "
 ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "children": Array [
             Object {
               "start": "        ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "def",
@@ -536,7 +507,7 @@ Object {
             },
             Object {
               "start": "   ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "index",
@@ -544,7 +515,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "=",
@@ -552,7 +523,7 @@ Object {
             },
             Object {
               "start": "     ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "versionMap",
@@ -584,7 +555,7 @@ Object {
             Object {
               "start": "
 ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "versionArray",
@@ -603,7 +574,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "=",
@@ -627,7 +598,7 @@ Object {
             Object {
               "start": "
 ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": ".",
@@ -644,7 +615,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "+",
@@ -652,7 +623,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "1",
@@ -661,7 +632,7 @@ Object {
             Object {
               "start": "
 ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "if",
@@ -671,7 +642,7 @@ Object {
               "children": Array [
                 Object {
                   "start": "   ",
-                  "type": "text",
+                  "type": "whitespace",
                 },
                 Object {
                   "start": "!",
@@ -683,7 +654,7 @@ Object {
                 },
                 Object {
                   "start": " ",
-                  "type": "text",
+                  "type": "whitespace",
                 },
               ],
               "end": ")",
@@ -693,14 +664,14 @@ Object {
             Object {
               "start": "
 ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "children": Array [
                 Object {
                   "start": "
     ",
-                  "type": "text",
+                  "type": "whitespace",
                 },
                 Object {
                   "start": "for",
@@ -714,7 +685,7 @@ Object {
                     },
                     Object {
                       "start": " ",
-                      "type": "text",
+                      "type": "whitespace",
                     },
                     Object {
                       "start": "i",
@@ -750,7 +721,7 @@ Object {
                     },
                     Object {
                       "start": "     ",
-                      "type": "text",
+                      "type": "whitespace",
                     },
                     Object {
                       "start": "i",
@@ -767,14 +738,14 @@ Object {
                 },
                 Object {
                   "start": " ",
-                  "type": "text",
+                  "type": "whitespace",
                 },
                 Object {
                   "children": Array [
                     Object {
                       "start": "
         ",
-                      "type": "text",
+                      "type": "whitespace",
                     },
                     Object {
                       "start": "versionArray",
@@ -793,7 +764,7 @@ Object {
                     },
                     Object {
                       "start": "    ",
-                      "type": "text",
+                      "type": "whitespace",
                     },
                     Object {
                       "start": "=",
@@ -801,7 +772,7 @@ Object {
                     },
                     Object {
                       "start": "    ",
-                      "type": "text",
+                      "type": "whitespace",
                     },
                     Object {
                       "start": "0",
@@ -809,7 +780,7 @@ Object {
                     },
                     Object {
                       "start": "            ",
-                      "type": "text",
+                      "type": "whitespace",
                     },
                   ],
                   "end": "}",
@@ -818,7 +789,7 @@ Object {
                 },
                 Object {
                   "start": "        ",
-                  "type": "text",
+                  "type": "whitespace",
                 },
               ],
               "end": "}",
@@ -828,7 +799,7 @@ Object {
             Object {
               "start": "
 ",
-              "type": "text",
+              "type": "whitespace",
             },
           ],
           "end": "}",
@@ -837,7 +808,7 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "catch",
@@ -847,7 +818,7 @@ Object {
           "children": Array [
             Object {
               "start": "       ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "Exception",
@@ -855,7 +826,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "e",
@@ -868,13 +839,13 @@ Object {
         },
         Object {
           "start": " ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "children": Array [
             Object {
               "start": "        ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "println",
@@ -900,7 +871,7 @@ Object {
             },
             Object {
               "start": "    ",
-              "type": "text",
+              "type": "whitespace",
             },
           ],
           "end": "}",
@@ -910,7 +881,7 @@ Object {
         Object {
           "start": "
 ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "return",
@@ -918,7 +889,7 @@ Object {
         },
         Object {
           "start": "             ",
-          "type": "text",
+          "type": "whitespace",
         },
         Object {
           "start": "versionArray",
@@ -936,7 +907,7 @@ Object {
           "children": Array [
             Object {
               "start": "                   ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "children": Array [
@@ -951,7 +922,7 @@ Object {
             },
             Object {
               "start": "                       ",
-              "type": "text",
+              "type": "whitespace",
             },
           ],
           "end": ")",
@@ -961,7 +932,7 @@ Object {
         Object {
           "start": "
 ",
-          "type": "text",
+          "type": "whitespace",
         },
       ],
       "end": "}",
@@ -971,7 +942,7 @@ Object {
     Object {
       "start": "
     ",
-      "type": "text",
+      "type": "whitespace",
     },
     Object {
       "start": "println",
@@ -1002,7 +973,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "children": Array [
@@ -1021,7 +992,7 @@ Object {
             },
             Object {
               "start": " ",
-              "type": "text",
+              "type": "whitespace",
             },
             Object {
               "start": "true",
@@ -1063,4 +1034,142 @@ exports[`Parsing and formatting 2`] = `
     return versionArray.join('.')
 }
 println(bumpVersion('1.2.3', 'minor', true))"
+`;
+
+exports[`Try/Catch 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "start": "try",
+      "type": "keywords",
+    },
+    Object {
+      "start": " ",
+      "type": "whitespace",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "a",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "1",
+          "type": "numeric",
+        },
+        Object {
+          "start": ";",
+          "type": "delimiters",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+      ],
+      "end": "}",
+      "start": "{",
+      "type": "block",
+    },
+    Object {
+      "start": " ",
+      "type": "whitespace",
+    },
+    Object {
+      "start": "catch",
+      "type": "keywords",
+    },
+    Object {
+      "start": " ",
+      "type": "whitespace",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": "Exception",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "e",
+          "type": "identifiers",
+        },
+      ],
+      "end": ")",
+      "start": "(",
+      "type": "round",
+    },
+    Object {
+      "start": " ",
+      "type": "whitespace",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "a",
+          "type": "identifiers",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "=",
+          "type": "operators",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+        Object {
+          "start": "2",
+          "type": "numeric",
+        },
+        Object {
+          "start": ";",
+          "type": "delimiters",
+        },
+        Object {
+          "start": " ",
+          "type": "whitespace",
+        },
+      ],
+      "end": "}",
+      "start": "{",
+      "type": "block",
+    },
+  ],
+  "start": "",
+  "type": "root",
+}
+`;
+
+exports[`Try/Catch 2`] = `
+"try {
+    a = 1;
+} catch (Exception e) {
+    a = 2;
+}"
 `;
