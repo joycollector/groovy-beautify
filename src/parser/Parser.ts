@@ -37,12 +37,12 @@ export class Parser {
     if (expression instanceof RegExp) {
       const modifiedExpression = new RegExp("^(" + expression.source + ")", expression.flags);
       const text = this.text.substring(this.textPosition).match(modifiedExpression)?.[0];
-      if (typeof text === "string") {
+      if (text !== undefined) {
         result = text;
       }
     } else if (expression instanceof Array) {
       for (const exp of expression) {
-        let match = this.match(cb, exp);
+        const match = this.match(cb, exp);
         if (match) {
           result = match;
           break;
@@ -84,7 +84,7 @@ export class Parser {
 
   parse() {
     const root: CodeBlock = { type: "root", start: "" };
-    const ruleStack = [] as Array<ParseRule>;
+    const ruleStack = [];
     const objStack = [root];
 
     while (!this.isDone()) {

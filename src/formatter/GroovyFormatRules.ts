@@ -7,7 +7,7 @@ class RootFormatRule extends FormatRule {
     return cb?.type === "root";
   }
 
-  beforeChild(childText: string, indent: number): string {
+  beforeChild(childText: string): string {
     let text = childText;
     const trimmedRight = trimSpacesAndTabsRight(text);
     if (trimmedRight.endsWith("\n")) {
@@ -61,7 +61,7 @@ class KeywordBlockFormatRule extends BlockFormatRule {
     return cb?.type === "keywordblock";
   }
 
-  formatStart(cb: CodeBlock, indent: number) {
+  formatStart() {
     return "{";
   }
 
@@ -101,7 +101,7 @@ class InlineBlockFormatRule extends BaseBlockRule {
       blockText = blockText.trim();
       return "\n" + padLeft(blockText, indent + 1) + "\n";
     } else {
-      let blockText = super.formatChildren(cb, indent);
+      const blockText = super.formatChildren(cb, indent);
       return blockText.trim();
     }
   }

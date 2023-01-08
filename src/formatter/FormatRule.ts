@@ -9,30 +9,43 @@ export default class FormatRule {
     this.formatter = formatter;
   }
 
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   matches(cb: CodeBlock, siblings?: CodeBlock[]): boolean {
     return true;
   }
+
   /* Modifies next sibling text before adding it */
+
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   afterSelf(nextText: string, indent: number): string {
     return nextText;
   }
+
   /* Modifies previous sibling text before adding it */
+
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   beforeSelf(prevText: string, indent: number, newLine: boolean): string {
     return prevText;
   }
+
   /* Modifies child text before adding it */
+
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   beforeChild(childText: string, indent: number): string {
     return childText;
   }
 
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   formatStart(cb: CodeBlock, indent: number): string {
     return cb.start ?? "";
   }
 
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   formatEnd(cb: CodeBlock, indent: number): string {
     return cb.end ?? "";
   }
 
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   allowBreak(cb: CodeBlock) {
     return false;
   }
@@ -60,8 +73,8 @@ export default class FormatRule {
         }
 
         const lastLineLength = res.split("\n").at(-1)?.length ?? 0;
-        const childFisrtLineLength = childString.split("\n").at(0)?.length ?? 0;
-        if (lastLineLength + childFisrtLineLength > this.formatter.options.width && childFormatRule?.allowBreak(child)) {
+        const childFirstLineLength = childString.split("\n").at(0)?.length ?? 0;
+        if (lastLineLength + childFirstLineLength > this.formatter.options.width && childFormatRule?.allowBreak(child)) {
           childString = "\n" + childString.trimStart();
           if (parentFormatRule) {
             childString = parentFormatRule.beforeChild(childString, indent + 1);

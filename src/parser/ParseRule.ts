@@ -4,8 +4,8 @@ export type MatchExpression = RegExp | string | ((currentBlock: CodeBlock, curre
 
 export default class ParseRule {
   name: string;
-  exclusive: boolean = false;
-  wholeword: boolean = false;
+  exclusive = false;
+  wholeword = false;
   start: MatchExpression | MatchExpression[];
   skip?: MatchExpression | MatchExpression[];
   end?: MatchExpression | MatchExpression[];

@@ -19,7 +19,7 @@ export class Formatter {
 
     if (obj) {
       const formatRule = this.rules.find((r) => r.matches(obj));
-      if (obj.start !== undefined) {
+      if (obj.start !== void 0) {
         if (formatRule) {
           text += formatRule.formatStart(obj, indent);
         }
@@ -28,8 +28,7 @@ export class Formatter {
       if (formatRule) {
         text += formatRule.formatChildren(obj, indent);
       }
-
-      if (obj.end !== undefined) {
+      if (obj.end !== void 0) {
         if (formatRule) {
           text += formatRule.formatEnd(obj, indent);
         }
